@@ -1,0 +1,46 @@
+package July01_2023;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * @Project_Name Huawei_practise
+ * @Author Costar
+ * @Date 2023-07-01 下午 1:51
+ * @Description 阿里巴巴找黄金宝箱(I)
+ */
+public class B100_6 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] inputs = br.readLine().split(",");
+        int[] nums = new int[inputs.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(inputs[i]);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (SumOfLeftItems(nums, i) == SumOfRightItems(nums, i)){
+                System.out.println(i);
+                return;
+            }
+        }
+        System.out.println(-1);
+    }
+
+    private static int SumOfLeftItems(int[] nums, int Index){
+        int ans = 0;
+        for (int i = 0; i < Index; i++) {
+            ans += nums[i];
+        }
+        return ans;
+    }
+
+    private static int SumOfRightItems(int[] nums, int Index){
+        int ans = 0;
+        for (int i = Index + 1; i < nums.length; i++) {
+            ans += nums[i];
+        }
+        return ans;
+    }
+}
