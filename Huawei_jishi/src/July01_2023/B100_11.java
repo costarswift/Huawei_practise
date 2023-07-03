@@ -28,16 +28,11 @@ public class B100_11 {
         int LowMount = length - HightMount;
         int CountOfLow = input.length() / length;
 
-        if (HightMount != 0){
-            nums[LowMount] = CountOfLow == 1 ? 10 : 100;
-            ans = nums[LowMount] - LowMount;
-        }else {
-            int[] numners = new int[10];
-            char[] chars = input.toCharArray();
-            for (char ch : chars){
-                numners[ch - '0']++;
-            }
-        }
+
+        nums[LowMount] = CountOfLow == 1 ? 10 : 100;
+        ans = nums[LowMount] - LowMount;
+        //todo考虑位数相同的情况
+
         return ans;
     }
 }
