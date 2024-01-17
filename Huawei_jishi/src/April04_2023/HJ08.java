@@ -23,9 +23,5 @@ public class HJ08 {
         }
         //输出
         map.forEach((key, value) -> System.out.println(key + " " + value));
-
-        for (var entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
-        }
     }
 }
