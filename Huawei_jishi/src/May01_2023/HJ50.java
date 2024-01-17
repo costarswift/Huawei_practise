@@ -16,14 +16,18 @@ public class HJ50 {
         public int expr(InputStream in) throws IOException {
             int result = 0;
             char c;
-            a: while((c = (char)in.read()) != '\n') {
+            a:
+            while ((c = (char) in.read()) != '\n') {
                 switch (c) {
                     case ')':
                     case ']':
-                    case '}': break a;
+                    case '}':
+                        break a;
                     case '(':
                     case '[':
-                    case '{': temp2 = new ExprDemo().expr(in); break;
+                    case '{':
+                        temp2 = new ExprDemo().expr(in);
+                        break;
                     case '+':
                     case '-':
                         jisuan1(TEMPCHAR);
@@ -33,7 +37,9 @@ public class HJ50 {
                     case '/':
                         jisuan1(c);
                         break;
-                    default: temp2 = temp2 * 10 + c - '0'; break;
+                    default:
+                        temp2 = temp2 * 10 + c - '0';
+                        break;
                 }
             }
             jisuan1(TEMPCHAR);
@@ -43,10 +49,16 @@ public class HJ50 {
 
         private void jisuan1(char c) {
             switch (lastsign2) {
-                case 0 -> temp1 = temp2;
-                case '*' -> temp1 *= temp2;
-                case '/' -> temp1 /= temp2;
-                default -> {
+                case 0:
+                    temp1 = temp2;
+                    break;
+                case '*':
+                    temp1 *= temp2;
+                    break;
+                case '/':
+                    temp1 /= temp2;
+                    break;
+                default: {
                 }
             }
             temp2 = 0;
@@ -55,10 +67,16 @@ public class HJ50 {
 
         private int jisuan2(char c, int result) {
             switch (lastsign1) {
-                case 0 -> result = temp1;
-                case '-' -> result -= temp1;
-                case '+' -> result += temp1;
-                default -> {
+                case 0:
+                    result = temp1;
+                    break;
+                case '-':
+                    result -= temp1;
+                    break;
+                case '+':
+                    result += temp1;
+                    break;
+                default: {
                 }
             }
             temp1 = 0;

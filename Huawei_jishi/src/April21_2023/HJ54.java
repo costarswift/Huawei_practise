@@ -51,7 +51,7 @@ public class HJ54 {
                     if (stack.size() <= 0 || stack.peek() == '(' || opeCompare(c, stack.peek())) {
                         stack.push(c);
                     } else {
-                        while (stack.size() > 0 && stack.peek() != '(' &&
+                        while (!stack.isEmpty() && stack.peek() != '(' &&
                                 !opeCompare(c, stack.peek())) {
                             deque.add(stack.pop() + "");
                         }
@@ -63,7 +63,7 @@ public class HJ54 {
         if (number.length() > 0) {
             deque.add(number.toString());
         }
-        while (stack.size() > 0) {
+        while (!stack.isEmpty()) {
             deque.add(stack.pop() + "");
         }
 
@@ -91,12 +91,19 @@ public class HJ54 {
                 int a = stack.pop();
                 int r = 0;
                 switch (s.charAt(0)) {
-                    case '*' -> r = a * b;
-                    case '/' -> r = a / b;
-                    case '+' -> r = a + b;
-                    case '-' -> r = a - b;
-                    default -> {
-                    }
+                    case '*':
+                        r = a * b;
+                        break;
+                    case '/':
+                        r = a / b;
+                        break;
+                    case '+':
+                        r = a + b;
+                        break;
+                    case '-':
+                        r = a - b;
+                        break;
+                    default:
                 }
                 stack.push(r);
             }
