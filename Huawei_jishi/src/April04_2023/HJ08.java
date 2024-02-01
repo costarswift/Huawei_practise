@@ -10,15 +10,15 @@ public class HJ08 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int row = Integer.parseInt(br.readLine());
-        Map<Integer, Integer> map = new TreeMap<Integer, Integer>();
+        Map<Integer, Integer> map = new TreeMap<>();
         while (row-- > 0) {
             String[] s = br.readLine().split(" ");
             int key = Integer.parseInt(s[0]);
             int value = Integer.parseInt(s[1]);
             if (map.containsKey(key)) {
-                map.put(key,value + map.get(key));
-            }else {
-                map.put(key,value);
+                map.put(key, value + map.get(key));
+            } else {
+                map.put(key, value);
             }
         }
         //输出
